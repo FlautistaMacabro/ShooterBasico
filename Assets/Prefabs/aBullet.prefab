@@ -145,3 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  effect: {fileID: 1863391042354281487, guid: d99efa97433ea23458601fcd38bd6eae, type: 3}

@@ -27,8 +27,10 @@ public class GunController : MonoBehaviour
 
     void Shoot(){
         if(Input.GetButtonDown("Fire1"))
+        {
             Instantiate(bullet, spawnBullet.position, transform.rotation);
             shootFx.Play();
+        }
     }
 
     void Aim(){

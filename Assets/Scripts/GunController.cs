@@ -6,11 +6,16 @@ public class GunController : MonoBehaviour
 {
     // Start is called before the first frame update
     SpriteRenderer sprite;
+
+    AudioSource shootFx;
     public GameObject bullet;
     public Transform spawnBullet;
+    
+
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        shootFx = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,6 +28,7 @@ public class GunController : MonoBehaviour
     void Shoot(){
         if(Input.GetButtonDown("Fire1"))
             Instantiate(bullet, spawnBullet.position, transform.rotation);
+            shootFx.Play();
     }
 
     void Aim(){

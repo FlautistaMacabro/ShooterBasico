@@ -5,14 +5,18 @@ using UnityEngine;
 public class MonsterController : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] AudioClip deadFx;
     GameObject player;
     Animator anim;
+
+    AudioSource EnemyFx;
     bool isAlive = true;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectsWithTag("Player")[0];
         anim = GetComponentsInChildren<Animator>()[0];
+        EnemyFx = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,6 +36,7 @@ public class MonsterController : MonoBehaviour
         if(collision.CompareTag("Bullet")){
             anim.SetTrigger("Dead");
             isAlive = false;
+            EnemyFx.PlayOneShot(deadFx);
             Destroy(gameObject, 0.5f);
         }
     }
